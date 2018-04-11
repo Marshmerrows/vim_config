@@ -1,4 +1,13 @@
-" For use with neovim: apt-get install neovim / brew install neovim
+" For use with neovim(maybe vim?): apt-get install neovim / brew install neovim
+" For use with vim-plug: 
+"   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" Neovim config settings in ~/.config/nvim/init.vim: (for redirecting to .vim)
+"   set runtimepath^=~/.vim runtimepath+=~/.vim/after
+"   let &packpath = &runtimepath
+"   source ~/.vimrc
+"
+" The first time using this, run the command :PlugInstall in vim
 syntax on
 set background=dark
 colorscheme jellybeans
