@@ -1,3 +1,4 @@
+" For use with neovim: apt-get install neovim / brew install neovim
 syntax on
 set background=dark
 colorscheme jellybeans
@@ -27,13 +28,46 @@ if $TERM_PROGRAM =~ "iTerm"
 call plug#begin('~/.vim/plugged')
 
 Plug 'w0rp/ale'
+
+"Prerequisites:
+"pip3 install neovim
+Plug 'roxma/nvim-completion-manager'
+
 " Initialize plugin system
 call plug#end()
 
 " <ale> plugin shenanigans
-let g:ale_fixers = {
+
+" fixer 
+let g:ale_fixers = { 
 \   'c'   : ['clang-format'],
 \   'cpp' : ['clang-format'],
 \}
 let g:ale_fix_on_save = 1
-let g:ale_completion_enabled = 1
+
+" <nvim-completion-manager> plugin shenanigans
+
+"tab for autocomplete menu
+"Use TAB to complete when typing words, else inserts TABs as usual.
+"Uses dictionary and source files to find matching words to complete.
+
+"See help completion for source,
+"Note: usual completion is on <C-n> but more trouble to press all the time.
+"Never type the same word twice and maybe learn a new spellings!
+"Use the Linux dictionary when spelling is in doubt.
+"Window users can copy the file to their machine.
+function! Tab_Or_Complete()
+  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+    return "\<C-N>"
+  else
+    return "\<Tab>"
+  endif
+endfunction
+:inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
+:set dictionary="/usr/dict/words"
+
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" don't give |ins-completion-menu| messages.  For example,
+" '-- XXX completion (YYY)', 'match 1 of 2', 'The only match',
+set shortmess+=c
