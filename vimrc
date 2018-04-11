@@ -15,6 +15,7 @@ colorscheme jellybeans
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+set backspace=indent,eol,start
 set expandtab
 set autoindent
 
@@ -40,7 +41,7 @@ Plug 'w0rp/ale'
 
 "Prerequisites:
 "pip3 install neovim
-Plug 'roxma/nvim-completion-manager'
+"Plug 'roxma/nvim-completion-manager'
 
 " Initialize plugin system
 call plug#end()
