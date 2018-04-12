@@ -38,6 +38,7 @@ if $TERM_PROGRAM =~ "iTerm"
 call plug#begin('~/.vim/plugged')
 
 Plug 'w0rp/ale'
+Plug 'nathanaelkane/vim-indent-guides'
 
 "chooses autocomplete based on vim or neovim
 :if has ('nvim')
@@ -85,3 +86,8 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " don't give |ins-completion-menu| messages.  For example,
 " '-- XXX completion (YYY)', 'match 1 of 2', 'The only match',
 set shortmess+=c
+
+" <vim-indent-guides> plugin shenanigans
+
+"enable on startup
+let g:indent_guides_enable_on_vim_startup = 1
