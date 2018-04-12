@@ -10,6 +10,10 @@
 " The first time using this, run the command :PlugInstall in vim
 syntax on
 set background=dark
+
+let g:jellybeans_overrides = {
+\    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
+\}
 colo jellybeans
 
 set tabstop=2
@@ -42,7 +46,7 @@ if $TERM_PROGRAM =~ "iTerm"
 call plug#begin('~/.vim/plugged')
 
 Plug 'w0rp/ale'
-Plug 'nathanaelkane/vim-indent-guides'
+Plug 'yggdroot/indentline'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -105,3 +109,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " don't give |ins-completion-menu| messages.  For example,
 " '-- XXX completion (YYY)', 'match 1 of 2', 'The only match',
 set shortmess+=c
+
+
+" <indentline> plugin shenanigans
+"let g:indentLine_setColors=0
