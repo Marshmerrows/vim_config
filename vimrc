@@ -10,7 +10,7 @@
 " The first time using this, run the command :PlugInstall in vim
 syntax on
 set background=dark
-colorscheme jellybeans
+colo jellybeans
 
 set tabstop=2
 set softtabstop=2
@@ -39,6 +39,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'w0rp/ale'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 "chooses autocomplete based on vim or neovim
 :if has ('nvim')
@@ -91,3 +93,7 @@ set shortmess+=c
 
 "enable on startup
 let g:indent_guides_enable_on_vim_startup = 1
+
+" <vim-airline> plugin shenanigans
+
+let g:airline_theme='jellybeans'
