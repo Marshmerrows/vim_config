@@ -39,9 +39,13 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'w0rp/ale'
 
-"Prerequisites:
-"pip3 install neovim
-"Plug 'roxma/nvim-completion-manager'
+"chooses autocomplete based on vim or neovim
+:if has ('nvim')
+:"pip3 install neovim
+:Plug 'roxma/nvim-completion-manager'
+:else
+:Plug 'ajh17/VimCompletesMe'
+:endif
 
 " Initialize plugin system
 call plug#end()
