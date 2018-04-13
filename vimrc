@@ -49,6 +49,7 @@ Plug 'w0rp/ale'
 Plug 'yggdroot/indentline'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdtree'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -113,3 +114,12 @@ set shortmess+=c
 
 " <indentline> plugin shenanigans
 "let g:indentLine_setColors=0
+
+" <nerdtree> plugin shenanigans
+"close window if only window is nerdtree
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"map nerdtree to ^n
+map <C-n> :NERDTreeToggle<CR>
+"open nerdtree on directory startup 
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | wincmd p | ene | exe 'NERDTree' argv()[0] | endif
