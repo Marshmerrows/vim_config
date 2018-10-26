@@ -40,7 +40,7 @@ if $TERM_PROGRAM =~ "iTerm"
 
 
 
-if has('nvim) "plugins active only if nvim
+if has('nvim') "plugins active only if nvim
 
 " Plugin manager(vim-plug)
 " Plugins installed in directory below
