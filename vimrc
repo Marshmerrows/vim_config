@@ -30,6 +30,7 @@ filetype indent on
 set number
 set lazyredraw
 set timeoutlen=150 ttimeoutlen=0
+set clipboard=unnamed
 
 " Change cursor shape between insert and normal mode in iTerm2.app
 if $TERM_PROGRAM =~ "iTerm"
