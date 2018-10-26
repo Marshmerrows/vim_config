@@ -40,7 +40,7 @@ if $TERM_PROGRAM =~ "iTerm"
 
 
 
-
+if has('nvim) "plugins active only if nvim
 
 " Plugin manager(vim-plug)
 " Plugins installed in directory below
@@ -124,3 +124,5 @@ map <C-n> :NERDTreeToggle<CR>
 "open nerdtree on directory startup 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | wincmd p | ene | exe 'NERDTree' argv()[0] | endif
+
+endif "plugins active only if nvim
